@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
+import Todolist from './Todolist/Todolist';
+import Todo from './Todo/Todo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const TodoApp = () => {
+
+let dateObj = new Date();
+let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+let months = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
+
+let date= dateObj.getDate();
+let month=months[dateObj.getMonth()];
+let day= days[dateObj.getDay()];
+
+return (
+    <div className="Todo-App">
+<h1>Today <span> {day} {date} {month} </span>
+<Todolist />
+
+</h1>
+
+</div>
+);
 }
 
-export default App;
+export default TodoApp;
